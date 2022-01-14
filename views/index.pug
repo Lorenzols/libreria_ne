@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  p Hello cane pazzo, #[em LocalLibrary], sento fresco
+
+  h1 Dynamic content
+  if error 
+    p Error getting dinamic content.
+  else
+    P THE LIBRARY HAS THE FOLLOWing record count:
+
+  ul 
+    li #[strong Book:] !{data.book_count}
+    li #[strong Copies:] !{data.book_instance_count}
+    li #[strong Copies Vailables:] !{data.book_instance_available_count}
+    li #[strong Author:] !{data.author_count}
+    li #[strong Genres:] !{data.genre_count}

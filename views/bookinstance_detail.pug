@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+    h1 Id: #{bookinstance._id}
+
+    p #[strong Title:]
+        a(href=bookinstance.book.url) #{bookinstance.book.title}
+    p #[strong Imprint:] #{bookinstance.imprint}
+
+    if bookinstance.status == 'Available'
+        span.text-sucess #[strong Status:]  #{bookinstance.status}
+
+    else if bookinstance.status == 'Maintenance'
+        span.text-danger #[strong Status:] #{bookinstance.status}
+
+    else 
+        span.text-warning #[strong Status:] #{bookinstance.imprint}
+
+    if bookinstance.status != 'Available'
+        p #[strong Due_back: ] #{bookinstance.due_back_formatted} 
+
+    
